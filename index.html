@@ -6,6 +6,29 @@
     <title>Bank Sampah SMKN 8 Malang</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="UUK.css" />
+    <style>
+      .tentang-section {
+  background-color: #f8f9fa;
+}
+
+.card {
+  background-color: #ffffff;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.img-fluid {
+  max-height: 400px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .tentang-section .card {
+    margin-bottom: 20px;
+  }
+}
+
+    </style>
   </head>
   <body>
     <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary" style="background-color: #e3f2fd;">
@@ -40,10 +63,10 @@
     </section>
 
     <!-- Tentang Section -->
-    <section class="tentang-section" id="tentang">
+    <section class="tentang-section py-5" id="tentang">
       <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-6">
+        <div class="row align-items-center mb-5">
+          <div class="col-md-6 col-12">
             <div class="card p-4">
               <h2>Adiwiyata</h2>
               <p>
@@ -51,19 +74,20 @@
               </p>
             </div>
           </div>
-          <div class="image-container">
-            <img src="assets/g23.jpg" alt="Deskripsi Gambar" />
+          <div class="col-md-6 col-12 text-center">
+            <img src="assets/g23.jpg" alt="Deskripsi Gambar" class="img-fluid rounded">
           </div>
         </div>
       </div>
     </section>
-    <section class="tentang-section" id="tentang">
+    
+    <section class="tentang-section py-5" id="tentang">
       <div class="container">
-        <div class="row align-items-center">
-          <div class="image-container">
-            <img src="assets/g24.jpg" alt="Deskripsi Gambar" />
+        <div class="row align-items-center mb-5">
+          <div class="col-md-6 col-12 order-md-2 text-center">
+            <img src="assets/g24.jpg" alt="Deskripsi Gambar" class="img-fluid rounded">
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6 col-12 order-md-1">
             <div class="card p-4">
               <h2>Kebersihan Lingkungan</h2>
               <p>
@@ -74,10 +98,11 @@
         </div>
       </div>
     </section>
-    <section class="tentang-section" id="tentang">
+    
+    <section class="tentang-section py-5" id="tentang">
       <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-6">
+        <div class="row align-items-center mb-5">
+          <div class="col-md-6 col-12">
             <div class="card p-4">
               <h2>Bank Sampah</h2>
               <p>
@@ -86,13 +111,13 @@
               <a href="page/Jenis.html" class="btn btn-primary">Jenis Sampah</a>
             </div>
           </div>
-          <div class="image-container">
-            <img src="assets/g6.jpg" alt="Deskripsi Gambar" />
+          <div class="col-md-6 col-12 text-center">
+            <img src="assets/g6.jpg" alt="Deskripsi Gambar" class="img-fluid rounded">
           </div>
         </div>
       </div>
     </section>
-
+    
     <!-- Footer -->
     <footer>
       <div class="container text-center">
