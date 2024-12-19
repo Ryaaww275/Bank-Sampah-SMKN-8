@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- <link rel="stylesheet" href="../css/bootstrap.min.css"> -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <section class="hero is-primary is-bold">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">Kritik & Saran</h1>
+        </div>
+      </div>
+    </section>
+    <!-- <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary" style="background-color: #e3f2fd;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="../assets/g8.png" alt="" width="50">Bank Sampah</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="../UUK.html">Home</a>
+            </li> 
+            <li class="nav-item active">
+              <a class="nav-link active" href="#">Struk</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Saran.html">Kritik & Saran</a>
+            </li>
+        </div>
+      </div>
+    </nav> -->
+
+    <form id="form" class="container m-4 pl-4" method="POST">
+      <div class="field">
+        <label class="label">Name</label>
+        <div class="control">
+          <input
+            class="input"
+            type="text"
+            placeholder="Your Name"
+            name="Name"
+          />
+        </div>
+      </div>
+
+      <!-- <div class="field">
+        <label class="label">Last Name</label>
+        <div class="control">
+          <input
+            class="input"
+            type="text"
+            placeholder="Your Last Name"
+            name="Last Name"
+          />
+        </div>
+      </div> -->
+
+      <div class="field">
+        <label class="label">Email</label>
+        <div class="control">
+          <input
+            class="input"
+            type="email"
+            placeholder="Your Email"
+            name="Email"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Password</label>
+        <div class="control">
+          <input
+            class="input"
+            type="password"
+            placeholder="Your Password"
+            name="Password"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Tanggal Lahir</label>
+        <div class="control">
+          <input
+            class="input"
+            type="date"
+            placeholder="Your Date of Birth"
+            name="Tanggal Lahir"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Gender</label>
+        <div class="control">
+          <label class="radio">
+            <input type="radio" name="Gender" value="Laki-Laki" /> Laki-Laki
+          </label>
+          <label class="radio">
+            <input type="radio" name="Gender" value="Perempuan" /> Perempuan
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Kritik & Saran</label>
+        <div class="control">
+          <textarea
+            class="textarea"
+            placeholder="Any additional information"
+            name="Notes"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Apakah Data Sudah Benar</label>
+        <div class="control">
+          <label class="checkbox">
+            <input type="checkbox" name="Pengecekan" value="Sudah" /> Ya
+          </label>
+        </div>
+      </div>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-primary" type="submit" id="submit-button">
+            Submit
+          </button>
+        </div>
+        <div class="control">
+          <a href="../index.html" class="button is-danger">Kembali</a>
+        </div>
+      </div>
+      
+    </form>
+    <div
+      id="message"
+      style="
+        display: none;
+        margin: 20px;
+        font-weight: bold;
+        color: green;
+        padding: 8px;
+        background-color: beige;
+        border-radius: 4px;
+        border-color: aquamarine;
+      "
+    ></div>
+
+    <script>
+      document.getElementById("form").addEventListener("submit", function (e) {
+        e.preventDefault(); // Mencegah pengiriman formulir default
+        document.getElementById("message").textContent = "Submitting..";
+        document.getElementById("message").style.display = "block";
+        document.getElementById("submit-button").disabled = true;
+
+        // Mengumpulkan data dari formulir
+        var formData = new FormData(this);
+        var keyValuePairs = [];
+        for (var pair of formData.entries()) {
+          keyValuePairs.push(pair[0] + "=" + pair[1]);
+        }
+
+        var formDataString = keyValuePairs.join("&");
+
+        // Kirim permintaan POST ke Skrip Google Apps 
+        fetch(
+          "https://script.google.com/macros/s/AKfycbzu5c0AEI_BnYJMvyUAdRv3bd3v_H4fqcoqcDSCWBGNXqFAg82tZtS80CmMSPnL7XLn/exec",
+          {
+            redirect: "follow",
+            method: "POST",
+            body: formDataString,
+            headers: {
+              "Content-Type": "text/plain;charset=utf-8",
+            },
+          }
+        )
+          .then(function (response) {
+            // Periksa apakah permintaan berhasil
+            if (response) {
+              return response; // mengembalikan data dalam format JSON sebagai respons.
+            } else {
+              throw new Error("Failed to submit the form.");
+            }
+          })
+          .then(function (data) {
+            // Menampilkan pesan sukses
+            document.getElementById("message").textContent =
+              "Data submitted successfully!";
+            document.getElementById("message").style.display = "block";
+            document.getElementById("message").style.backgroundColor = "green";
+            document.getElementById("message").style.color = "beige";
+            document.getElementById("submit-button").disabled = false;
+            document.getElementById("form").reset();
+
+            setTimeout(function () {
+              document.getElementById("message").textContent = "";
+              document.getElementById("message").style.display = "none";
+            }, 2600);
+          })
+          .catch(function (error) {
+            // Menaangani kesalahan, menampilkan pesan kesalahan di sini
+            console.error(error);
+            document.getElementById("message").textContent =
+              "An error occurred while submitting the form.";
+            document.getElementById("message").style.display = "block";
+          });
+      });
+    </script>
+    <script src="../js/bootstrap.bundle.js"></script>
+  </body>
+</html>

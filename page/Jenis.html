@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../UUK.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary" style="background-color: #e3f2fd;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="../assets/g8.png" alt="" width="50">Bank Sampah</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link"href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Jenis Sampah</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Saran.html">Kritik & Saran</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <section class="produk-section" id="produk">
+      <h2>Jenis Sampah</h2>
+      <div class="produk-container">
+        <div class="produk-card">
+          <img src="../assets/g9.jpg" alt="Gambar 1" />
+          <h3>Organik</h3>
+          <p>
+            Sampah organik adalah sampah yang berasal dari sisa makhluk hidup, seperti manusia, hewan, dan tumbuhan. Sampah organik dapat terurai secara alami tanpa campur tangan manusia.
+          </p>
+          <br />
+          <a href="Daftar1.html" class="btn-primary">Pilih</a>
+        </div>
+        <div class="produk-card">
+          <img src="../assets/g10.jpg" alt="Gambar 2" />
+          <h3>Anorganik</h3>
+          <p>
+            Sampah anorganik adalah jenis sampah yang berasal dari bahan-bahan non-alami atau bahan yang tidak terurai secara biologis oleh mikroorganisme dalam waktu singkat.
+          </p>
+          <br />
+          <a href="Daftar2.html" class="btn-primary">Pilih</a>
+        </div>
+        <div class="produk-card">
+          <img src="../assets/g11.jpg" alt="Gambar 3" />
+          <h3>B3</h3>
+          <p>
+            Sampah B3 atau limbah Bahan Berbahaya dan Beracun adalah limbah yang mengandung zat-zat kimia berbahaya dan beracun yang dapat merusak lingkungan dan kesehatan manusia.
+          </p>
+          <br />
+          <a href="Daftar3.html" class="btn-primary">Pilih</a>
+        </div>
+      </div>
+    </section>
+    <script type="text/javascript">
+      const tombol = document.querySelector(".tombol");
+      const menu = document.querySelector(".menu");
+
+      tombol.addEventListener("click", () => {
+        menu.classList.toggle("aktif");
+      });
+    </script>
+     <script src="../js/bootstrap.bundle.js"></script>
+  </body>
+</html>

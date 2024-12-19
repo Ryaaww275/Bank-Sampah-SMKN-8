@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pengajuan Sampah</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../UUK.css" />
+</head>
+<body>
+    <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary" style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="../assets/g8.png" alt="" width="50">Bank Sampah</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Jenis.html">Jenis Sampah</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="tambah_sampah.html">Tambah Data</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Saran.html">Kritik & Saran</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    <section class="contact-section">
+        <h2>Pengajuan Data Sampah</h2>
+        <form class="contact-form" id="penjualanForm">
+            <div class="form-group">
+                <label for="name">Nama:</label>
+                <input type="text" id="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="kelas">Kelas:</label>
+                <input type="text" id="kelas" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="jenis-sampah">Jenis Sampah: </label>
+              <select id="jenis-sampah" name="jenis-sampah" class="form-control" required>
+                <option value="" disabled selected>Pilih Jenis Sampah</option>
+                <option value="Organik">Organik</option>
+                <option value="Anorganik">Anorganik</option>
+                <option value="B3">B3</option>
+              </select>
+            </div>
+            <div class="form-group">
+                <label for="nama-sampah">Nama Sampah:</label>
+                <input type="text" id="nama-sampah" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success">Simpan Data</button>
+        </form>
+    </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const editIndex = urlParams.get("edit");
+        const dataSampah = JSON.parse(localStorage.getItem("dataSampah")) || [];
+    
+        // Jika ada parameter edit, isi form dengan data
+        if (editIndex !== null) {
+          const data = dataSampah[editIndex];
+          document.getElementById("name").value = data.name;
+          document.getElementById("kelas").value = data.kelas;
+          document.getElementById("email").value = data.email;
+          document.getElementById("jenis-sampah").value = data.jenisSampah;
+          document.getElementById("nama-sampah").value = data.namaSampah;
+        }
+    
+        // Tangani submit form
+        document.getElementById("penjualanForm").addEventListener("submit", function(e) {
+          e.preventDefault();
+    
+          // Ambil data dari form
+          const name = document.getElementById("name").value;
+          const kelas = document.getElementById("kelas").value;
+          const email = document.getElementById("email").value;
+          const jenisSampah = document.getElementById("jenis-sampah").value;
+          const namaSampah = document.getElementById("nama-sampah").value;
+    
+          // Jika edit mode, perbarui data
+          if (editIndex !== null) {
+            dataSampah[editIndex] = { name, kelas, email, jenisSampah, namaSampah };
+          } else {
+            // Tambahkan data baru
+            dataSampah.push({ name, kelas, email, jenisSampah, namaSampah });
+          }
+    
+          // Simpan ke localStorage
+          localStorage.setItem("dataSampah", JSON.stringify(dataSampah));
+    
+          // Arahkan kembali ke halaman tampilkan_data.html
+          window.location.href = "tampilkan_data.html";
+        });
+      });
+    </script>
+    
+    <script src="../js/bootstrap.bundle.js"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../UUK.css" />
+</head>
+<body>
+    <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary" style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="../assets/g8.png" alt="" width="50">Bank Sampah</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="../UUK.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Jenis.html">Jenis Sampah</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link active" href="#">Struk Penjualan</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Kritik & Saran
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Kritik</a></li>
+                  <li><a class="dropdown-item" href="#">Saran</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+      <section class="contact-section">
+        <h2>Struk Penjualan Sampah Anda:</h2>
+        <form class="contact-form">
+          <p><strong>Nama:</strong> <span id="name"></span></p>
+          <p><strong>Kelas:</strong> <span id="kelas"></span></p>
+          <p><strong>Email:</strong> <span id="emaill"></span></p>
+          <p><strong>Jenis Sampah:</strong> <span id="jenis-sampah"></span></p>
+          <p><strong>Jumlah Sampah:</strong> <span id="jh"></span></p>
+          <p><strong>Harga/kg:</strong> <span id="harga"></span></p>
+          <br />
+          <a href="Pembayaran.html" class="btn-primary">Lanjut</a>
+          <a href="tampilkan_data.html" class="btn-primary">Kembali</a>
+        </form>
+      </section>
+  
+      <script>
+        document.getElementById("name").textContent = localStorage.getItem("name");
+        document.getElementById("kelas").textContent = localStorage.getItem("kelas");
+        document.getElementById("email").textContent = localStorage.getItem("email");
+        document.getElementById("jenis-sampah").textContent = localStorage.getItem("jenisSampah");
+        document.getElementById("jh").textContent = localStorage.getItem("jh");
+        document.getElementById("harga").textContent = localStorage.getItem("harga");
+      </script>
+    <script src="../js/bootstrap.bundle.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struk Penjualan Sampah</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../UUK.css" />
+</head>
+<body>
+    <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary" style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="../assets/g8.png" alt="" width="50">Bank Sampah</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html">Home</a>
+              </li> 
+              <li class="nav-item active">
+                <a class="nav-link active" href="#">Struk</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Saran.html">Kritik & Saran</a>
+              </li>
+          </div>
+        </div>
+      </nav>
+
+    <section class="contact-section">
+        <h2>Struk Penjualan Sampah Anda:</h2>
+        <form class="contact-form">
+            <p><strong>Nama:</strong> <span id="name"></span></p>
+            <p><strong>Kelas:</strong> <span id="kelas"></span></p>
+            <p><strong>Email:</strong> <span id="email"></span></p>
+            <p><strong>Jenis Sampah:</strong> <span id="jenis-sampah"></span></p>
+            <p><strong>Jumlah Sampah:</strong> <span id="jumlah-sampah"></span></p>
+            <br />
+            <a href="Selesai.html" class="btn-primary">Lanjut</a>
+            <a href="Formulir.html" class="btn-primary">Kembali</a>
+        </form>
+    </section>
+
+    <script>
+        // Ambil data dari localStorage dan tampilkan di halaman struk
+        document.getElementById("name").textContent = localStorage.getItem("name");
+        document.getElementById("kelas").textContent = localStorage.getItem("kelas");
+        document.getElementById("email").textContent = localStorage.getItem("email");
+        document.getElementById("jenis-sampah").textContent = localStorage.getItem("jenisSampah");
+        document.getElementById("jumlah-sampah").textContent = localStorage.getItem("jumlahSampah");
+    </script>
+
+    <script src="../js/bootstrap.bundle.js"></script>
+</body>
+</html>

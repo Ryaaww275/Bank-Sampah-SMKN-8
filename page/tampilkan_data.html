@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tampilkan Data Penjualan Sampah</title>
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../UUK.css">
+</head>
+<body>
+  <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="../assets/g8.png" alt="" width="50">Bank Sampah</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Jenis.html">Jenis Sampah</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link active" href="#">Tampilkan Data</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Saran.html">Kritik & Saran</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="contact-section">
+    <h2>Pengecekan Pengajuan Data</h2>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Kelas</th>
+            <th>Email</th>
+            <th>Jenis Sampah</th>
+            <th>Nama Sampah</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="dataSampah">
+        </tbody>
+      </table>
+    </div>
+
+    <div class="button-group">
+      <a href="tambah_sampah.html" class="btn btn-success">Tambah Baru</a>
+      <a href="selesai.html" class="btn btn-primary">Kirim</a>
+    </div>
+  </section>
+
+  <script type="text/javascript">
+    window.onload = function() {
+      const dataSampah = JSON.parse(localStorage.getItem("dataSampah")) || [];
+      const dataTable = document.getElementById("dataSampah");
+
+      // Menampilkan data pada tabel
+      dataSampah.forEach((item, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${index + 1}</td>
+          <td>${item.name}</td>
+          <td>${item.kelas}</td>
+          <td>${item.email}</td>
+          <td>${item.jenisSampah}</td>
+          <td>${item.namaSampah}</td>
+          <td>
+            <a href="tambah_sampah.html?edit=${index}" class="btn btn-warning">Edit</a>
+            <button class="btn btn-danger" onclick="hapusData(${index})">Hapus</button>
+          </td>
+        `;
+        dataTable.appendChild(row);
+      });
+    };
+
+    function hapusData(index) {
+      const dataSampah = JSON.parse(localStorage.getItem("dataSampah")) || [];
+
+      // Menghapus data berdasarkan index
+      dataSampah.splice(index, 1);
+
+      // Simpan perubahan ke localStorage
+      localStorage.setItem("dataSampah", JSON.stringify(dataSampah));
+
+      // Refresh halaman untuk memperbarui tampilan data
+      window.location.reload();
+    }
+  </script>
+
+  <script src="../js/bootstrap.bundle.js"></script>
+</body>
+</html>
